@@ -1,0 +1,11 @@
+---
+version: '3'
+
+tasks:
+  login:
+    desc: "Login via ssh"
+    cmds:
+      - ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -i ./ssh_rsa.key root@$(terraform output -raw ipv4)
+    preconditions:
+      - test -f ./ssh_rsa.key
+      - terraform output -raw ipv4

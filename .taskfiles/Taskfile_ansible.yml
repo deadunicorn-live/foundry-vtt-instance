@@ -1,0 +1,12 @@
+---
+version: '3'
+
+tasks:
+  run:
+    desc: "Run playbooks via ssh"
+    cmds:
+      - ansible-playbook -u root -i "$(terraform output -raw ipv4)," --private-key ./ssh_rsa.key ../../ansible/site.yml
+    preconditions:
+      - which ansible-playbook
+      - test -f ./ssh_rsa.key
+      - terraform output -raw ipv4

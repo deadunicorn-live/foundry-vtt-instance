@@ -1,0 +1,13 @@
+---
+version: '3'
+
+includes:
+  instance:
+    taskfile: .taskfiles/Taskfile_instance.yml
+    dir: ./deployment/vtt-instance
+  ssh:
+    taskfile: .taskfiles/Taskfile_ssh.yml
+    dir: ./deployment/vtt-instance
+  ansible:
+    taskfile: .taskfiles/Taskfile_ansible.yml
+    dir: ./deployment/vtt-instance

@@ -1,0 +1,22 @@
+# Terraform
+
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+crash.log
+*.tfvars
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraformrc
+terraform.rc
+
+# Include defaults
+!defaults.*.tfvars
+
+# Ignore locks in local modules
+terraform/**/.terraform*
+terraform/**/*.lock.hcl
+
+ssh_rsa.key

@@ -1,0 +1,31 @@
+---
+version: '3'
+
+env:
+  TF_CLI_ARGS_plan: -input=false
+
+tasks:
+  init:
+    desc: Init terraform providers and modules
+    cmds:
+      - terraform init -upgrade=true
+      - terraform validate
+
+  apply:
+    desc: Plan and apply cluster infrasturcture
+    cmds:
+      - task: init
+      - terraform plan
+      - terraform apply
+
+  destroy:
+    desc: Destroy cluster infrastructure
+    cmds:
+      - terraform destroy
+
+  refresh:
+    desc: Refresh terraform state
+    cmds:
+      - terraform get -update
+      - terraform validate
+      - terraform refresh
